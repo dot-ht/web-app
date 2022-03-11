@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 
 const Navigation = () => (
-    <nav className="flex items-center justify-between max-w-3xl p-4 mx-auto">
+    <nav className="flex items-center justify-between max-w-3xl p-4 mx-auto dark:bg-slate-900">
     <a
         className="inline-flex items-center justify-center w-10 h-10 bg-gray-100 rounded-lg"
         href="/"

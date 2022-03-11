@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Routes, Route } from "react-router-dom";
 
 import Home from './components/Home/Home';
+import Chat from './components/Chat/Chat';
 import Planets from './components/Planet/Planets';
 import Navigation from './components/Navigation/Navigation';
 
@@ -122,10 +123,11 @@ const planets = {
 const App = () => {
   //const title = "Home";
   return (
-    <div className="App">
+    <div className="App min-h-full bg-white dark:bg-slate-900">
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/chat" element={<Chat />} />
         <Route path="planets" element={<Planets planets={planets.planets}/>} />
       </Routes>
     </div>
