@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import Planet from "../Planet/Planet";
 
 /* const planet = {
@@ -16,8 +14,7 @@ const Planets = (props) => {
 
   return (
     <>
-      <h1>Planet</h1>
-      <div>{_planet}</div>
+      <div className="grid gap-4 grid-cols-3 grid-rows-3 p-4">{_planet}</div>
     </>
   );   
 }

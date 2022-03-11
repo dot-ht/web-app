@@ -8,16 +8,10 @@ import Planet from "../Planet/Planet";
 }
  */
 
-const Home = (props) => {
-  const planets = props.planets;
-  const _planet = planets.map((planet) => 
-    <Planet item={planet} />
-  );
-
+const Home = () => {
   return (
     <>
       <h1>Home</h1>
-      <div>{_planet}</div>
     </>
   );   
 }
