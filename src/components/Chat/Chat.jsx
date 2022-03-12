@@ -5,6 +5,8 @@ const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [bot, setBot] = useState([]);
   
+  const link = 'http://192.168.0.60:5000/chat/';
+
   const getData = async (state, json) =>{
     await fetch(json
     ,{
@@ -32,8 +34,46 @@ const Chat = () => {
     getData(setBot, 'bot.json')
   },[]
   )
+
+  const componentDidMount = async (inp) => {
+    // POST request using fetch with async/await
+    console.log('send request');
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ input: inp })
+    };
+    const response = await fetch('http://192.168.0.60:5000/chat/', requestOptions);
+    const data = await response.json();
+    const json = data.parse();
+    console.log(data);
+    return json;
+}
+
+  const [name, setName] = useState("");
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    messages.push(
+      {
+        index: messages[messages.length - 1].index + 1,
+        sender: true,
+        msg: name
+      }
+    )
+    const respond = await componentDidMount(name);
+    console.log(respond['msg']);
+    messages.push(
+      {
+        index: messages[messages.length - 1].index + 1,
+        sender: false,
+        msg: respond.msg
+      }
+    )
+  }
+
     return  (
-      <div className="flex w-full justify-center">
+      <div className="flex w-full max-h-screen justify-center p-5">
         <div className="flex flex-col md:w-2/5 w-full h-full p-5 rounded-xl divide-y dark:bg-slate-800">
           <div className="flex justify-start items-center pb-5">
             <img className="object-cover w-10 h-10 rounded-full mr-1"
@@ -41,7 +81,7 @@ const Chat = () => {
             <span className="block ml-2 font-bold text-gray-600 dark:text-white">{bot.bot_name}</span>
           </div>
           <div className="flex flex-col bg-scroll pt-5 pb-5">
-            <ul className="space-y-2 w-full">
+            <ul className="space-y-2 w-full h-screen overflow-auto">
               {console.log(messages)}
               {messages.map((message) => (
                   <ChatMessage key={message.index} sender={message.sender} message={message.msg} />
@@ -49,8 +89,8 @@ const Chat = () => {
             </ul>
           </div>
           <div className="flex justify-center pt-5">
-            <form action='POST' className="flex w-full">
-              <input type="text" placeholder="type your message" className="block py-2 pl-4 mx-3 bg-gray-100 rounded-xl outline-none focus:text-gray-700 w-full" name="message" required />
+            <form onSubmit={handleSubmit} className="flex w-full">
+              <input type="text" placeholder="type your message" className="block py-2 pl-4 mx-3 bg-gray-100 rounded-xl outline-none focus:text-gray-700 w-full" name="message" value={name} onChange={(e) => setName(e.target.value)} required />
                 <button type="submit">
                   <svg className="w-5 h-5 text-gray-500 origin-center transform rotate-90" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20" fill="currentColor">

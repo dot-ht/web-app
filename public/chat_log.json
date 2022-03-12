@@ -1,100 +1,91 @@
 [{
-        "index": 0,
-        "sender": true,
-        "msg": "Hi"
-    },
-    {
-        "index": 1,
-        "sender": false,
-        "msg": "Hiiii"
-    },
-    {
-        "index": 2,
-        "sender": true,
-        "msg": "how are you?"
-    },
-    {
-        "index": 3,
-        "sender": false,
-        "msg": "Lorem ipsum dolor sit, amet consectetur adipisicing elit."
-    },
-    {
-      "index": 4,
-      "sender": true,
-      "msg": "Hi"
-    },
-    {
-        "index": 5,
-        "sender": false,
-        "msg": "Hiiii"
-    },
-    {
-        "index": 6,
-        "sender": true,
-        "msg": "how are you?"
-    },
-    {
-        "index": 7,
-        "sender": false,
-        "msg": "Lorem ipsum dolor sit, amet consectetur adipisicing elit."
-    },
-    {
-      "index": 8,
-      "sender": true,
-      "msg": "Hi"
-    },
-    {
-        "index": 9,
-        "sender": false,
-        "msg": "Hiiii"
-    },
-    {
-        "index": 10,
-        "sender": true,
-        "msg": "how are you?"
-    },
-    {
-        "index": 11,
-        "sender": false,
-        "msg": "Lorem ipsum dolor sit, amet consectetur adipisicing elit."
-    },
-    {
-      "index": 12,
-      "sender": true,
-      "msg": "Hi"
-    },
-    {
-      "index": 13,
-      "sender": false,
-      "msg": "Hiiii"
-    },
-    {
-      "index": 14,
-      "sender": true,
-      "msg": "how are you?"
-    },
-    {
-      "index": 15,
-      "sender": false,
-      "msg": "Lorem ipsum dolor sit, amet consectetur adipisicing elit."
-    },
-    {
-      "index": 16,
-      "sender": true,
-      "msg": "Hi"
-    },
-    {
-      "index": 17,
-      "sender": false,
-      "msg": "Hiiii"
-    },
-    {
-      "index": 18,
-      "sender": true,
-      "msg": "how are you?"
-    },
-    {
-      "index": 19,
-      "sender": false,
-      "msg": "Lorem ipsum dolor sit, amet consectetur adipisicing elit."
-    }]
+    "index": 0,
+    "sender": true,
+    "msg": "Hdi"
+  },
+  {
+    "index": 1,
+    "sender": false,
+    "msg": "Hiiii"
+  },
+  {
+    "index": 2,
+    "sender": true,
+    "msg": "how are you?"
+  },
+  {
+    "index": 3,
+    "sender": false,
+    "msg": "Lorem ipsum ddsfs sdfsfs sdfsfsd sdfsdf sdkfjbhsdjfbsjhfbjs hjsdbfjhsdbfjh sdfhbshfjsj sdfbshjfbjshf sdhjfbhjsfbhjs jshdfbjhsbfjhs jhdsbfhjsfb hbsdhjfbsdhjfb dsjhfbjshdbfhgjs jhbdfhjsbf sit, amet consectetur adipisicing elit."
+  },
+  {
+    "index": 4,
+    "sender": true,
+    "msg": "Hi"
+  },
+  {
+    "index": 5,
+    "sender": false,
+    "msg": "Hiiii"
+  },
+  {
+    "index": 6,
+    "sender": true,
+    "msg": "how are you?"
+  },
+  {
+    "index": 7,
+    "sender": false,
+    "msg": "Lorem ipsum dolor sit, amet consectetur adipisicing elit."
+  },
+  {
+    "index": 8,
+    "sender": true,
+    "msg": "Hi"
+  },
+  {
+    "index": 9,
+    "sender": false,
+    "msg": "Hiiii"
+  },
+  {
+    "index": 10,
+    "sender": true,
+    "msg": "how are you?"
+  },
+  {
+    "index": 11,
+    "sender": false,
+    "msg": "Lorem ipsum dolor sit, amet consectetur adipisicing elit."
+  },
+  {
+    "index": 12,
+    "sender": true,
+    "msg": "Hi"
+  },
+  {
+    "index": 13,
+    "sender": false,
+    "msg": "Hiiii"
+  },
+  {
+    "index": 14,
+    "sender": true,
+    "msg": "how are you?"
+  },
+  {
+    "index": 15,
+    "sender": false,
+    "msg": "Lorem ipsum dolor sit, amet consectetur adipisicing elit."
+  },
+  {
+    "index": 16,
+    "sender": true,
+    "msg": "Hi"
+  },
+  {
+    "index": 17,
+    "sender": false,
+    "msg": "Hiiii"
+  }
+]
