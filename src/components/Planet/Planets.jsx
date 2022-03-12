@@ -8,12 +8,13 @@ import Planet from "../Planet/Planet";
 }
  */
 
-const Planets = (props) => {
+const Planets = () => {
   const [planets, setPlanets] = useState([]);
 
   const getData = async (state, json) =>{
     await fetch(json
     ,{
+      'methods':'GET',
       headers : { 
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -26,12 +27,12 @@ const Planets = (props) => {
       })
       .then(function(myJson) {
         //console.log(myJson);
-        state(myJson.planets)
+        state(myJson)
       });
   }
 
   useEffect(()=>{
-    getData(setPlanets, 'planet_template.json')
+    getData(setPlanets, 'http://192.168.0.60:5000/planets/')
   },[]
   )
 
@@ -41,6 +42,7 @@ const Planets = (props) => {
 
   return (
     <>
+      {console.log(planets)}
       <div className="grid gap-4 grid-cols-3 grid-rows-3 p-4">{_planet}</div>
     </>
   );   
