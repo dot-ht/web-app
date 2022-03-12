@@ -57,8 +57,8 @@ const Chat = () => {
                   <div className="relative w-full p-6 overflow-y-auto h-[40rem]">
 
                     <ul className="space-y-2">
-                      {messages.map((message, index) => (
-                          <ChatMessage key={index} sender={message.sender} message={message.msg} />
+                      {messages.map((message) => (
+                          <ChatMessage key={message.index} sender={message.sender} message={message.msg} />
                       ))}
                     </ul>
 

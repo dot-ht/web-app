@@ -1,4 +1,4 @@
-const Chat = ({key, sender, message}) => {
+const Chat = ({sender, message}) => {
     let classN = "flex justify-"
     classN += (sender) ? "end" : "start";
     return(
