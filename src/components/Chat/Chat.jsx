@@ -4,11 +4,11 @@ import ChatMessage from "./ChatMessage";
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [bot, setBot] = useState([]);
-  
-  const link = 'http://192.168.0.60:5000/chat/';
+  const [response, setResponse] = useState({});
+  const link = 'http://137.184.227.30:5000/chat/';
 
-  const getData = async (state, json) =>{
-    await fetch(json
+  const getData = (state, json) =>{
+    fetch(json
     ,{
       headers : { 
         'Content-Type': 'application/json',
@@ -26,6 +26,30 @@ const Chat = () => {
       });
   }
 
+  const postMessage = (url, inp) =>{
+    fetch(url, 
+    {
+      'method': 'POST',
+      'headers': { 'Content-Type': 'application/json' },
+      'body': JSON.stringify({ input: inp })
+    }
+    )
+      .then(function(response){
+        //console.log(response)
+        return response.json();
+      })
+      .then(function(response){
+        console.log(response)
+        messages.push(
+          {
+            index: messages[messages.length - 1].index + 1,
+            sender: false,
+            msg: response.msg
+          }
+        )
+      });
+  }
+
   useEffect(()=>{
     getData(setMessages, 'chat_log.json')
   },[])
@@ -35,20 +59,7 @@ const Chat = () => {
   },[]
   )
 
-  const componentDidMount = async (inp) => {
-    // POST request using fetch with async/await
-    console.log('send request');
-    const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ input: inp })
-    };
-    const response = await fetch('http://192.168.0.60:5000/chat/', requestOptions);
-    const data = await response.json();
-    const json = data.parse();
-    console.log(data);
-    return json;
-}
+
 
   const [name, setName] = useState("");
 
@@ -61,15 +72,9 @@ const Chat = () => {
         msg: name
       }
     )
-    const respond = await componentDidMount(name);
-    console.log(respond['msg']);
-    messages.push(
-      {
-        index: messages[messages.length - 1].index + 1,
-        sender: false,
-        msg: respond.msg
-      }
-    )
+    
+    postMessage('http://137.184.227.30:5000/chat/', name);
+    
   }
 
     return  (

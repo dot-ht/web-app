@@ -32,7 +32,7 @@ const Planets = () => {
   }
 
   useEffect(()=>{
-    getData(setPlanets, 'http://192.168.0.60:5000/planets/')
+    getData(setPlanets, 'http://137.184.227.30:5000/planets/')
   },[]
   )
 
