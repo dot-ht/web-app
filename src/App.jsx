@@ -8,7 +8,6 @@ import Chat from './components/Chat/Chat';
 import Planets from './components/Planet/Planets';
 import Navigation from './components/Navigation/Navigation';
 
-import logo from './logo.svg';
 import './App.css';
 
 const App = () => {
