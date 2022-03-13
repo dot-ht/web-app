@@ -40,15 +40,10 @@ const Chat = () => {
       });
   }
 
-/*   useEffect(()=>{
-    getData(setMessages, 'chat_log.json')
-  },[]) */
-
   useEffect(()=>{
     getData(setBot, 'bot.json')
   },[]
   )
-
 
   const handleSubmit = async (event) => {
     messages.push(
@@ -71,21 +66,19 @@ const Chat = () => {
   };
 
     return  (
-      <div className="flex w-full justify-center p-5">
+      <div className="flex w-full h-[calc(100vh - 72px)] justify-center p-5" style={{'height': 'calc(100vh - 72px)'}}>
         <div className="flex flex-col justify-space-a lg:w-2/5 md:w4/6 s w-full h-full p-5 rounded-xl divide-y divide-slate-600 dark:bg-slate-800">
           <div className="flex justify-self-start justify-start items-center pb-5">
             <img className="object-cover w-10 h-10 rounded-full mr-1"
               src={bot.bot_pic} alt={bot.bot_name} />
             <span className="block ml-2 font-bold text-gray-600 dark:text-white">{bot.bot_name}</span>
           </div>
-          <div className="flex flex-col bg-scroll h-full pt-5 pb-5">
-            <ul className="space-y-3 w-full h-full h-max-screen overflow-auto">
-              {console.log(messages)}
-              {messages.map((message) => (
-                  <ChatMessage key={message.index} sender={message.sender} message={message.msg} />
-              ))}
-            </ul>
-          </div>
+          <ul className="space-y-3 w-full h-full p-5 overflow-scroll overscroll-contain scroll-smooth scrollbar-hide">
+            {console.log(messages)}
+            {messages.map((message) => (
+                <ChatMessage key={message.index} sender={message.sender} message={message.msg} />
+            ))}
+          </ul>
           <div className="flex justify-self-end justify-center pt-5">
             <form onSubmit={handleSubmit} className="flex w-full">
               <input type="text" placeholder="type your message" className="block py-2 pl-4 mx-3 bg-gray-100 rounded-xl outline-none focus:text-gray-700 w-full" name="message" value={name} onChange={(e) => setName(e.target.value)} onKeyPress={handleKeypress} required />
