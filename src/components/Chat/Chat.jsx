@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ChatMessage from "./ChatMessage";
 
 const Chat = () => {
-  const [messages, setMessages] = useState([{index: 0, sender: false, msg: "Welcome to the chat!"}]);
+  const [messages, setMessages] = useState([{index: 0, sender: false, type: 'text', msg: "Welcome to the chat!", img: null}]);
   const [bot, setBot] = useState([]);
   const [name, setName] = useState("");
 
@@ -31,11 +31,13 @@ const Chat = () => {
         return response.json();
       })
       .then(function(response){
-        console.log(response)
+        //console.log(response)
         setMessages(messages => [...messages, {
           index: messages[messages.length - 1].index + 1,
           sender: false,
-          msg: response.msg
+          type: response.type,
+          msg: response.msg,
+          img: response.img
         }]);
       });
   }
@@ -66,7 +68,7 @@ const Chat = () => {
   };
 
     return  (
-      <div className="flex w-full h-[calc(100vh - 72px)] justify-center p-5" style={{'height': 'calc(100vh - 72px)'}}>
+      <div className="flex w-full justify-center p-5" style={{'height': 'calc(100vh - 72px)'}}>
         <div className="flex flex-col justify-space-a lg:w-2/5 md:w4/6 s w-full h-full p-5 rounded-xl divide-y divide-slate-600 dark:bg-slate-800">
           <div className="flex justify-self-start justify-start items-center pb-5">
             <img className="object-cover w-10 h-10 rounded-full mr-1"
@@ -76,7 +78,7 @@ const Chat = () => {
           <ul className="space-y-3 w-full h-full p-5 overflow-scroll overscroll-contain scroll-smooth scrollbar-hide">
             {console.log(messages)}
             {messages.map((message) => (
-                <ChatMessage key={message.index} sender={message.sender} message={message.msg} />
+                <ChatMessage key={message.index} type={message.type} sender={message.sender} message={message.msg} img={message.img}/>
             ))}
           </ul>
           <div className="flex justify-self-end justify-center pt-5">
