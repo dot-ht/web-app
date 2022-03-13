@@ -13,7 +13,7 @@ import './App.css';
 
 const App = () => {
   return (
-    <div className="App min-h-full bg-white dark:bg-slate-900">
+    <div className="App min-h-screen bg-white dark:bg-slate-900">
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
