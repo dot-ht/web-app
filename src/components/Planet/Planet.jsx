@@ -3,7 +3,6 @@ const Planet = (props) => {
     return (
         <>
             <button className="relative block bg-black group rounded-xl " onClick={e => {
-              console.log("SHUT THE FUCK UP")
             }}
             >
                 <img

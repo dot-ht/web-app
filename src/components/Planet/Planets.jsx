@@ -43,7 +43,7 @@ const Planets = () => {
   return (
     <>
       {console.log(planets)}
-      <div className="grid gap-4 grid-cols-3 grid-rows-3 p-4">{_planet}</div>
+      <div className="grid gap-4 xl:grid-cols-3 md:grid-cols-2 p-4">{_planet}</div>
     </>
   );   
 }

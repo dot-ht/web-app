@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ChatMessage from "./ChatMessage";
 
 const Chat = () => {
-  const [messages, setMessages] = useState([{index: 0, sender: false, type: 'text', msg: "Welcome to the chat!", img: null}]);
+  const [messages, setMessages] = useState([{index: 0, sender: false, type: 'text', msg: "Hi, I'm todbot, how can I help you discover the deep space?", img: null}]);
   const [bot, setBot] = useState([]);
   const [name, setName] = useState("");
 
@@ -31,7 +31,7 @@ const Chat = () => {
         return response.json();
       })
       .then(function(response){
-        //console.log(response)
+        console.log(response)
         setMessages(messages => [...messages, {
           index: messages[messages.length - 1].index + 1,
           sender: false,
@@ -78,7 +78,7 @@ const Chat = () => {
           <ul className="space-y-3 w-full h-full p-5 overflow-scroll overscroll-contain scroll-smooth scrollbar-hide">
             {console.log(messages)}
             {messages.map((message) => (
-                <ChatMessage key={message.index} type={message.type} sender={message.sender} message={message.msg} img={message.img}/>
+                <ChatMessage key={message.index} type={message.type} sender={message.sender} message={message.msg} img={message.img} suggestions={message.suggestions}/>
             ))}
           </ul>
           <div className="flex justify-self-end justify-center pt-5">
