@@ -8,7 +8,7 @@ const Chat = ({ sender, type, message, img, suggestions}) => {
 
   return (
     <li className={classN}>
-      <div className="px-4 py-2 rounded shadow text-gray-700 dark:text-white bg-slate-700" style={{'maxWidth': '75%' }}>
+      <div className="px-4 py-2 rounded shadow text-gray-700 dark:text-white bg-neutral-100 dark:bg-slate-700" style={{'maxWidth': '75%' }}>
       <p className={classT}>{message}</p>
       <img className={classImg} src={img}/>
       <ul className="flex">

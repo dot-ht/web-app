@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Routes, Route } from "react-router-dom";
-import { useChain, animated } from 'react-spring'
 
 
 import Home from './components/Home/Home';
@@ -12,7 +11,7 @@ import './App.css';
 
 const App = () => {
   return (
-    <div className="App flex flex-col h-full max-h-screen bg-white dark:bg-slate-900">
+    <div className="App flex flex-col h-full max-h-screen bg-neutral-100 dark:bg-slate-900">
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
