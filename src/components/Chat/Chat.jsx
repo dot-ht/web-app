@@ -1,10 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ChatMessage from "./ChatMessage";
 
 const Chat = () => {
+  const messageEl = useRef(null);
   const [messages, setMessages] = useState([{index: 0, sender: false, type: 'text', msg: "Hi, I'm todbot, how can I help you discover the deep space?", img: null}]);
   const [bot, setBot] = useState([]);
   const [name, setName] = useState("");
+
+  useEffect(() => {
+    if (messageEl) {
+      messageEl.current.addEventListener('DOMNodeInserted', event => {
+        const { currentTarget: target } = event;
+        target.scroll({ top: target.scrollHeight, behavior: 'smooth' });
+      });
+    }
+  }, [])
 
   const getData = (state, json) =>{
     fetch(json, {
@@ -13,24 +23,24 @@ const Chat = () => {
         'Accept': 'application/json'
        }
     })
-      .then(function(response){
+      .then(response => {
         return response.json();
       })
-      .then(function(myJson) {
+      .then(myJson => {
         state(myJson)
       });
   }
 
-  const postMessage = (url, inp) =>{
+  const postMessage = (url, inp) => {
     fetch(url, {
       'method': 'POST',
       'headers': { 'Content-Type': 'application/json' },
       'body': JSON.stringify({ input: inp })
     })
-      .then(function(response){
+      .then(response =>{
         return response.json();
       })
-      .then(function(response){
+      .then(response => {
         console.log(response)
         setMessages(messages => [...messages, {
           index: messages[messages.length - 1].index + 1,
@@ -47,7 +57,7 @@ const Chat = () => {
   },[]
   )
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async(event) => {
     messages.push(
       {
         index: messages[messages.length - 1].index + 1,
@@ -75,9 +85,9 @@ const Chat = () => {
               src={bot.bot_pic} alt={bot.bot_name} />
             <span className="block ml-2 font-bold text-gray-600 dark:text-white">{bot.bot_name}</span>
           </div>
-          <ul className="space-y-3 w-full h-full p-5 overflow-scroll overscroll-contain scroll-smooth scrollbar-hide">
+          <ul id="chat" className="space-y-3 w-full h-full p-5 overflow-scroll overscroll-contain scroll-smooth scrollbar-hide" ref={messageEl}>
             {console.log(messages)}
-            {messages.map((message) => (
+            {messages.map(message => (
                 <ChatMessage key={message.index} type={message.type} sender={message.sender} message={message.msg} img={message.img} suggestions={message.suggestions}/>
             ))}
           </ul>
